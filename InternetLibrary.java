@@ -8,10 +8,12 @@ import java.util.Date;
  */
 public class InternetLibrary implements Library {
     String name;
+    String address;
     ArrayList<Book> listOfBooks;
 
     public InternetLibrary(){
         this.name = "Default Library";
+        this.address = "Default address";
         this.listOfBooks = new ArrayList<>();
     }
 
@@ -26,56 +28,58 @@ public class InternetLibrary implements Library {
     }
 
     @Override
-    public String findBook(String name) {
-        StringBuilder s = new StringBuilder();
+    public ArrayList<Book> findBook(String name) {
+        ArrayList<Book> arr = new ArrayList<>();
         for (Book book : listOfBooks) {
             if (book.getName().equals(name)) {
-                s.append(book.toString());
+                arr.add(book);
             }
         }
-        if (s.toString().equals("")){
-            s.append("No matches found");
+        if(arr.isEmpty() == true){
+            arr.add(new Book(0,"No matches", "No matches", new Date()));
         }
-        return s.toString();
-        }
-    public String findBookByAuthor(String author) {
-        StringBuilder s = new StringBuilder();
+        return arr;
+         }
+
+
+    public ArrayList<Book> findBookByAuthor(String author) {
+        ArrayList<Book> arr = new ArrayList<>();
         for (Book book : listOfBooks) {
             if (book.getAuthor().equals(author)) {
-                s.append(book.toString());
+                arr.add(book);
             }
         }
-        if (s.toString().equals("")){
-            s.append("No matches found");
+        if(arr.isEmpty() == true){
+            arr.add(new Book(0,"No matches", "No matches", new Date()));
         }
-        return s.toString();
+        return arr;
     }
     @Override
-    public String findBook(long isbn) {
-        StringBuilder s = new StringBuilder();
+    public ArrayList<Book> findBook(long isbn) {
+        ArrayList<Book> arr = new ArrayList<>();
         for (Book book : listOfBooks) {
             if (book.getIsbn() == isbn) {
-                s.append(book.toString());
+                arr.add(book);
             }
         }
-        if (s.toString().equals("")){
-            s.append("No matches found");
+        if(arr.isEmpty() == true){
+            arr.add(new Book(0,"No matches", "No matches", new Date()));
         }
-        return s.toString();
+        return arr;
     }
 
     @Override
-    public String findBook(Date date) {
-        StringBuilder s = new StringBuilder();
+    public ArrayList<Book> findBook(Date date) {
+        ArrayList<Book> arr = new ArrayList<>();
         for (Book book : listOfBooks) {
             if (book.getDate() == date) {
-                s.append(book.toString());
+                arr.add(book);
             }
         }
-        if (s.toString().equals("")){
-            s.append("No matches found");
+        if(arr.isEmpty() == true){
+            arr.add(new Book(0,"No matches", "No matches", new Date()));
         }
-        return s.toString();
+        return arr;
     }
     @Override
     public String getName() {
@@ -98,7 +102,7 @@ public class InternetLibrary implements Library {
 
     @Override
     public String getAddress() {
-        return "There is no address";
+        return this.address;
     }
     public int size(){
         return listOfBooks.size();

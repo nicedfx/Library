@@ -9,9 +9,9 @@ import java.util.Date;
 public interface Library {
     void addBook(Book book);
     void removeBook(Book book);
-    String findBook(String name);
-    String findBook(long isbn);
-    String findBook(Date date);
+    ArrayList<Book> findBook(String name);
+    ArrayList<Book> findBook(long isbn);
+    ArrayList<Book> findBook(Date date);
     String getName();
     Library sort();
     String getAddress();
