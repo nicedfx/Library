@@ -1,0 +1,8 @@
+/**
+ * Created by Student-3 on 04.07.2017.
+ */
+public class NoSuchOrderByException extends Exception {
+    public NoSuchOrderByException(){
+        super("No such order by");
+    }
+}
