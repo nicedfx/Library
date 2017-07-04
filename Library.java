@@ -1,5 +1,3 @@
-package org.library;
-
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,4 +13,5 @@ public interface Library {
     String getName();
     Library sort();
     String getAddress();
+    ArrayList<Book> sort(OrderBy orderBy) throws NoSuchOrderByException;
 }
