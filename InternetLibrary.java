@@ -1,6 +1,9 @@
 package org.library;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -72,7 +75,7 @@ public class InternetLibrary implements Library {
     public ArrayList<Book> findBook(Date date) {
         ArrayList<Book> arr = new ArrayList<>();
         for (Book book : listOfBooks) {
-            if (book.getDate() == date) {
+            if (book.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() == date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();) {
                 arr.add(book);
             }
         }
